@@ -1,46 +1,64 @@
 const express = require('express');
-const cors = require('cors');
-const mongoose = require('mongoose');
 const multer = require('multer');
+const cors = require('cors');
+const fs = require('fs');
+const pdfParse = require('pdf-parse');
+const mongoose = require('mongoose');
 const path = require('path');
-const dotenv = require('dotenv');
 
-// Load environment variables
-dotenv.config();
+// MongoDB URI (replace with your MongoDB connection string)
+const mongoURI = 'mongodb+srv://arshchand:Arsh%40110001@cluster1.zlbbdzb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1'; // Use your MongoDB connection URI
 
-const app = express();
-const port = process.env.PORT || 5000;
+// Set up MongoDB connection
+mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => console.log('MongoDB connected successfully!'))
+    .catch((err) => console.log('MongoDB connection error:', err));
 
-// Middleware
-app.use(cors());  // Enable CORS
-app.use(express.json()); // Parse JSON in request bodies
-
-// MongoDB connection
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.error("MongoDB connection error:", err));
-
-// File upload setup using Multer
-const storage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, './uploads'); // Save uploaded files in the 'uploads' folder
-  },
-  filename: (req, file, cb) => {
-    cb(null, Date.now() + path.extname(file.originalname)); // Set a unique filename for each file
-  }
+// Define a schema for storing extracted text
+const extractedTextSchema = new mongoose.Schema({
+    text: { type: String, required: true },
+    uploadedAt: { type: Date, default: Date.now },
 });
 
-const upload = multer({ storage: storage });
+// Create a model from the schema
+const ExtractedText = mongoose.model('ExtractedText', extractedTextSchema);
 
-// Routes
-app.post('/api/upload', upload.single('pdf'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).send({ message: 'No file uploaded' });
-  }
-  res.status(200).send({ message: 'PDF uploaded successfully', file: req.file });
+const app = express();
+const PORT = 5000;
+
+// Enable CORS so frontend can talk to backend
+app.use(cors());
+
+// Setup multer to store uploads in the 'uploads' folder
+const upload = multer({ dest: 'uploads/' });
+
+// Route to handle PDF uploads and extract text
+app.post('/upload', upload.single('pdf'), async (req, res) => {
+    if (!req.file) {
+        return res.status(400).json({ error: 'No file uploaded.' });
+    }
+
+    try {
+        const fileBuffer = fs.readFileSync(req.file.path);
+        const data = await pdfParse(fileBuffer);
+        const extractedText = data.text;
+
+        // Save the extracted text to MongoDB
+        const newText = new ExtractedText({ text: extractedText });
+        await newText.save(); // Save to MongoDB
+
+        // Clean up the uploaded file after parsing
+        fs.unlinkSync(req.file.path);
+
+        // Respond with the extracted text
+        return res.json({ text: extractedText });
+    } catch (err) {
+        console.error('Error parsing PDF:', err);
+        return res.status(500).json({ error: 'Failed to parse PDF.' });
+    }
 });
 
 // Start the server
-app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Server running at http://localhost:${PORT}`);
 });
