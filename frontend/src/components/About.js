@@ -11,17 +11,17 @@ export default function About(props) {
     
     return (
         <div className="container">
-            <h1 className="my-3" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>About TextUtilities</h1>
+            <h1 className="my-3" style={{ color: props.mode === 'dark' ? 'white' : '#042743' }}>About Research Analyser</h1>
             <div className="accordion" id="accordionExample">
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
                         <button className="accordion-button" type="button" style={myStyle} data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            <strong>Text Analysis</strong>
+                            <strong>Research Summary</strong>
                         </button>
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            TextUtilities offers advanced text analysis tools, including word count, character count, and readability statistics.
+                            Research Analyser offers quality research analysis and insights. It provides a comprehensive overview of research findings, helping researchers make informed decisions and improve their work.
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@ export default function About(props) {
                     </h2>
                     <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            TextUtilities is a free tool for analyzing text. It helps users efficiently manage and optimize their writing.
+                            Research Analyser is a free tool for analyzing text. It helps users efficiently manage and optimize their writing.
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ export default function About(props) {
                     </h2>
                     <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            TextUtilities is compatible with all modern web browsers including Chrome, Firefox, Safari, and Edge, ensuring accessibility for all users.
+                            Research Analyser is compatible with all modern web browsers including Chrome, Firefox, Safari, and Edge, ensuring accessibility for all users.
                         </div>
                     </div>
                 </div>

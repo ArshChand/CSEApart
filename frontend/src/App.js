@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import About from './components/About';
 import Alert from './components/Alert';
+import FChatButton from './components/FChatButton'; 
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
@@ -29,7 +30,7 @@ function App() {
 
   return (
     <Router>
-      <Navbar title="TextUtilities" mode={mode} toggleMode={toggleMode} />
+      <Navbar title="Research Analyser" mode={mode} toggleMode={toggleMode} />
       <Alert alert={alert} />
       <div className="container my-4">
         <Routes>
@@ -37,6 +38,7 @@ function App() {
           <Route path="/" element={<TextForm showAlert={showAlert} heading="Enhance Your Text Easily!" mode={mode} />} />
         </Routes>
       </div>
+      <FChatButton />
     </Router>
   );
 }

@@ -5,6 +5,7 @@ const fs = require('fs');
 const pdfParse = require('pdf-parse');
 const mongoose = require('mongoose');
 const path = require('path');
+const { execFile } = require('child_process');
 
 // MongoDB URI (replace with your MongoDB connection string)
 const mongoURI = 'mongodb+srv://arshchand:Arsh%40110001@cluster1.zlbbdzb.mongodb.net/?retryWrites=true&w=majority&appName=Cluster1'; // Use your MongoDB connection URI
@@ -22,7 +23,6 @@ const extractedTextSchema = new mongoose.Schema({
 
 // Create a model from the schema
 const ExtractedText = mongoose.model('ExtractedText', extractedTextSchema);
-
 const app = express();
 const PORT = 5000;
 
@@ -39,6 +39,7 @@ app.post('/upload', upload.single('pdf'), async (req, res) => {
     }
 
     try {
+        const filePath = req.file.path;
         const fileBuffer = fs.readFileSync(req.file.path);
         const data = await pdfParse(fileBuffer);
         const extractedText = data.text;
@@ -47,11 +48,20 @@ app.post('/upload', upload.single('pdf'), async (req, res) => {
         const newText = new ExtractedText({ text: extractedText });
         await newText.save(); // Save to MongoDB
 
-        // Clean up the uploaded file after parsing
-        fs.unlinkSync(req.file.path);
+        execFile('python', ['../python-summarizer/summarizer.py', filePath], (error, stdout, stderr) => {
+          fs.unlinkSync(filePath); // Clean up the file
 
-        // Respond with the extracted text
-        return res.json({ text: extractedText });
+          if (error) {
+              console.error('Error running summarizer.py:', error);
+              return res.status(500).json({ error: 'Failed to generate summary.' });
+          }
+
+          const summary = stdout.trim();
+          return res.json({
+              text: extractedText,
+              summary: summary
+          });
+      });
     } catch (err) {
         console.error('Error parsing PDF:', err);
         return res.status(500).json({ error: 'Failed to parse PDF.' });
@@ -62,3 +72,4 @@ app.post('/upload', upload.single('pdf'), async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running at http://localhost:${PORT}`);
 });
+
