@@ -19,7 +19,7 @@ def answer_with_context(question, documents):
     # Build document context
     document_context = ""
     for source, chunks in chunks_by_pdf.items():
-        selected_chunks = chunks[:5]  # take top 5 chunks per doc
+        selected_chunks = chunks[:200]  # take top 5 chunks per doc
         for chunk in selected_chunks:
             document_context += f"\n\nFrom {source}:\n{chunk[:1000]}"
 
