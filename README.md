@@ -4,7 +4,7 @@
 
 Arsh Chand : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
 
-Kavya Kumar Agrawal : [Github](https://github.com/Kavya-Agrawal), [LinkedIn](https://www.linkedin.com/in/kavya-kumar-agrawal-200b082aa/)
+Kavya Kumar Agrawal : [Github](https://github.com/Kavya-Agrawal), [LinkedIn](https://www.linkedin.com/in/kavya-kumar-agrawal/)
 
 Pratyush Kumar Swain : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
 
