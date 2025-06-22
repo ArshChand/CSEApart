@@ -1,235 +1,189 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a id="readme-top"></a>
-<!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
--->
+# PaperMind: AI-Powered Research Assistant
+
+## Developer 
+
+Arsh Chand : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+
+Kavya Kumar Agrawal : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+
+Pratyush Kumar Swain : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+
+Parv Goyal : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+
+## Overview
+
+PaperMind is a comprehensive AI-powered research assistant designed to revolutionize the academic research process. Built with modern web technologies and advanced machine learning models, it provides researchers, students, and academics with intelligent tools to analyze, evaluate, and interact with research papers through natural language processing.
+
+The platform combines document analysis, quality assessment, automated summarization, and conversational AI to create a seamless research workflow that saves time and enhances research quality.
+
+## Key Features
+
+### Intelligent Paper Analysis
+- **Automated Content Extraction**: Sophisticated parsing of PDF research papers with structured content recognition
+- **Semantic Analysis**: Advanced NLP techniques to understand paper context, methodology, and contributions
+- **Quality Assessment**: Multi-dimensional scoring system evaluating originality, technical depth, clarity, and structure
+- **Improvement Suggestions**: AI-generated recommendations for enhancing paper quality and readability
+
+### Conversational Research Assistant
+- **Context-Aware Chatbot**: Natural language interaction with uploaded research papers
+- **Semantic Search**: Vector-based similarity search across paper collections
+- **Related Work Discovery**: Automated identification of relevant research papers
 
 
+## Technology Stack
 
-<!-- PROJECT SHIELDS -->
-<!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
-*** https://www.markdownguide.org/basic-syntax/#reference-style-links
--->
-[![Contributors][contributors-shield]][contributors-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+### Frontend
+- **React.js**: Modern, component-based user interface
+- **Tailwind CSS**: Utility-first CSS framework for responsive design
+- **Axios**: HTTP client for API communication
 
+### Backend
+- **Node.js**: Server-side JavaScript runtime
+- **Express.js**: Web application framework
+- **MongoDB**: Document-oriented database for flexible data storage
+- **Mongoose**: MongoDB object modeling for Node.js
 
+### Machine Learning & AI
+- **Python**: Core ML processing language
+- **Transformers (Hugging Face)**: State-of-the-art NLP models
+- **Google Generative AI**: Advanced text generation and analysis
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-<!--   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a> -->
+### Document Processing
+- **PyMuPDF (Fitz)**: High-performance PDF text extraction
+- **pdf-parse**: Node.js PDF parsing library
+- **Multer**: File upload handling middleware
 
-<h3 align="center">PaperMind: Give your paper a mind of its own</h3>
+### Additional Technologies
+- **FastAPI**: High-performance API framework for Python services
+- **Vector Databases**: Semantic search and similarity matching
+- **CORS**: Cross-origin resource sharing middleware
 
-  <p align="center">
-    PaperMind is an AI-powered research assistant designed to streamline the academic research process. It empowers students, scholars, and researchers by intelligently analyzing uploaded research papers, evaluating their quality, suggesting improvements, and enabling natural language interactions through an AI chatbot.
-  Whether you're writing your first research paper or diving into a literature review, PaperMind helps you work smarter by combining NLP, machine learning, and information retrieval into one powerful platform.
-    <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    &middot;
-    <a href="https://github.com/github_username/repo_name/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p>
-</div>
-
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
-  </ol>
-</details>
-
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
-
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-### Built With
-
- Tech Stack
-Frontend: React.js, TailwindCSS
-
-Backend: Node.js, Express
-
-AI & NLP: Python (Transformers, HuggingFace, spaCy), LangChain, OpenAI/GPT APIs
-
-PDF Parsing: PyMuPDF / PDFPlumber
-
-Database: MongoDB (with vector storage support)
-
-Other Tools: Pinecone / ChromaDB (for similarity search), Redis (for session management)
-
-
-
-<!-- GETTING STARTED -->
-## Getting Started
+## Installation
 
 ### Prerequisites
 
-* npm
-* express
-* mongoose
-* PyMuPDF
-* Fitz
-* hf_xet
-* google.generativeAI
-* googleapi
-* torch
-* pdfminer.six
-* pdfminer.high_level
-* fastapi
-* mongodb
-* PDFjs-dist
-* multer
-* cors
-* pdf-parse
- 
+Ensure you have the following installed:
+- Node.js (v14 or higher)
+- Python (v3.8 or higher)
+- MongoDB (v4.4 or higher)
+- npm or yarn package manager
 
-### Installation
+### Environment Setup
 
-1. Get a free API Key at googlegenai
-2. Clone the repo
+1. **Clone the repository**
+   ```bash
+   git clone [https://github.com/ArshChand/CSEApart.git](https://github.com/ArshChand/CSEApart)
+   cd papermind
+   ```
 
-3. Install NPM packages
+2. **Install Node.js dependencies**
+   ```bash
+   npm install
+   ```
 
-4. Enter your API in `query.py` and `summersizer.py`
+3. **Set up Python environment**
+   ```bash
+   cd python-services
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+4. **Configure environment variables**
+   
+   Create a `.env` file in the root directory:
+   ```env
+   # Database Configuration
+   MONGODB_URI=mongodb://localhost:27017/papermind
+   
+   # API Keys
+   GOOGLE_AI_API_KEY=your_google_ai_api_key
+   
+   # Server Configuration
+   PORT=3000
 
+### Running the Application
 
+1. **Start the Python ML services**
+   ```bash
+   cd python-services
+   python -m uvicorn main:app --reload --port 8000
+   ```
 
-<!-- USAGE EXAMPLES -->
-## Usage
+2. **Start the Node.js backend**
+   ```bash
+   node server.js
+   ```
 
-✅ Quickly assess and refine your research paper before submission
+3. **Start the React frontend**
+   ```bash
+   npm start
+   ```
 
-✅ Explore similar research papers with semantic search
+The application will be available at `http://localhost:3000`
 
-✅ Get AI-suggested edits for better readability and structure
+## Usage Guide
 
-✅ Summarize long papers within seconds
+### Uploading Papers
 
-✅ Ask follow-up questions in natural language
+1. Navigate to the upload section
+2. Select PDF files (maximum 10MB each)
+3. Wait for processing and analysis completion
+4. Review generated summary and quality scores
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Quality Assessment
 
+The system evaluates papers across multiple dimensions:
+- **Originality**: Novelty of research contribution
+- **Technical Depth**: Rigor of methodology and analysis
+- **Clarity**: Writing quality and structure
+- **Citations**: Reference quality and relevance
 
+### Chatbot Interaction
 
-<!-- ROADMAP -->
+1. Select a processed paper as context(if not mentioned answering may take longer)
+2. Ask questions in natural language
+3. Receive contextual responses based on paper content
+4. Explore related topics and papers
+   
+## Contributing
+
+We welcome contributions to PaperMind! Please follow these guidelines:
+
+1. **Fork the repository** and create a feature branch
+2. **Follow coding standards** and include appropriate tests
+3. **Update documentation** for any new features
+4. **Submit pull requests** with clear descriptions
+
 ## Roadmap
 
- Key Features
-📄 Paper Upload & Parsing
-Upload research papers in PDF format
+### Version 2.0 Features
+- Multi-language paper support
+- Advanced citation network analysis
+- Integration with academic databases
+- Collaborative annotation tools
+- Mobile application development
 
-Extracts structured content like title, abstract, introduction, methodology, results, and references
+### Long-term Vision
+- Real-time collaboration features
+- Advanced plagiarism detection
+- Automated peer review assistance
+- Integration with journal submission systems
 
-🧠 Smart Analysis
-Performs semantic analysis and checks for clarity, consistency, novelty, and citations
+## License
 
-Uses AI to generate a summary and critical insights
+This project is verified under the CSEA.
 
-⭐ Paper Quality Assessment
-Automatically rates the paper on originality, technical depth, clarity, and structure
+## Support
 
-Offers suggestions to improve weak areas in the paper
+For support and questions contact any of the Developer.
 
-💬 Conversational Chatbot
-Chat with an AI assistant trained to understand academic writing
+## Acknowledgments
 
-Ask questions about your uploaded paper or related topics
+- Hugging Face for providing state-of-the-art NLP models
+- The open-source community for excellent libraries and tools
+- Academic researchers who provided feedback during development
 
-Supports contextual and semantic search from a collection of papers
+---
 
-🔎 Related Work Finder
-Finds and recommends related papers across various domains
-
-Uses vector-based semantic search to identify closely related literature
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo_name.svg?style=for-the-badge
-[contributors-url]: https://github.com/github_username/repo_name/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/github_username/repo_name.svg?style=for-the-badge
-[forks-url]: https://github.com/github_username/repo_name/network/members
-[stars-shield]: https://img.shields.io/github/stars/github_username/repo_name.svg?style=for-the-badge
-[stars-url]: https://github.com/github_username/repo_name/stargazers
-[issues-shield]: https://img.shields.io/github/issues/github_username/repo_name.svg?style=for-the-badge
-[issues-url]: https://github.com/github_username/repo_name/issues
-[license-shield]: https://img.shields.io/github/license/github_username/repo_name.svg?style=for-the-badge
-[license-url]: https://github.com/github_username/repo_name/blob/master/LICENSE.txt
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
-[product-screenshot]: images/screenshot.png
-[Next.js]: https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Vue.js]: https://img.shields.io/badge/Vue.js-35495E?style=for-the-badge&logo=vuedotjs&logoColor=4FC08D
-[Vue-url]: https://vuejs.org/
-[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
-[Angular-url]: https://angular.io/
-[Svelte.dev]: https://img.shields.io/badge/Svelte-4A4A55?style=for-the-badge&logo=svelte&logoColor=FF3E00
-[Svelte-url]: https://svelte.dev/
-[Laravel.com]: https://img.shields.io/badge/Laravel-FF2D20?style=for-the-badge&logo=laravel&logoColor=white
-[Laravel-url]: https://laravel.com
-[Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
-[Bootstrap-url]: https://getbootstrap.com
-[JQuery.com]: https://img.shields.io/badge/jQuery-0769AD?style=for-the-badge&logo=jquery&logoColor=white
-[JQuery-url]: https://jquery.com 
+**Built with dedication for the research community**
