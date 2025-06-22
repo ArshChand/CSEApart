@@ -1,29 +1,41 @@
 import sys
 import json
 import google.generativeai as genai
-from collections import defaultdict
-import os
+from sentence_transformers import SentenceTransformer
+from sklearn.metrics.pairwise import cosine_similarity
+import numpy as np
 
-# Configure your Gemini API key
-genai.configure(api_key="AIzaSyClpvR6vhgU7aUFQCSMAjXxEBpPN98cXfo")  # Replace if needed
-model = genai.GenerativeModel("gemini-2.0-flash")
+# Configure Gemini API
+genai.configure(api_key="AIzaSyCLKbTL2sneFmE-iLy_9cCNVFAbgwEXUa8")
+model = genai.GenerativeModel("gemini-1.5-flash")
 
-def answer_with_context(question, documents):
-    # Group chunks by source
-    chunks_by_pdf = defaultdict(list)
+# Load embedding model
+embedder = SentenceTransformer('all-MiniLM-L6-v2')  # Efficient & accurate
+
+def retrieve_relevant_chunks(question, documents, top_k=5):
+    all_chunks = []
     for doc in documents:
-        source = doc.get("source", "Unknown Source")
+        source = doc.get("source", "Unknown")
         text = doc.get("text", "")
-        chunks_by_pdf[source].append(text)
+        all_chunks.append((source, text))
 
-    # Build document context
-    document_context = ""
-    for source, chunks in chunks_by_pdf.items():
-        selected_chunks = chunks[:200]  # take top 5 chunks per doc
-        for chunk in selected_chunks:
-            document_context += f"\n\nFrom {source}:\n{chunk[:1000]}"
+    chunk_texts = [text for _, text in all_chunks]
+    chunk_embeddings = embedder.encode(chunk_texts)
+    question_embedding = embedder.encode([question])
 
-    # Prompt to Gemini
+    similarities = cosine_similarity(question_embedding, chunk_embeddings)[0]
+    top_indices = np.argsort(similarities)[-top_k:][::-1]
+
+    selected = []
+    for i in top_indices:
+        source, text = all_chunks[i]
+        selected.append(f"\n\nFrom {source}:\n{text[:1024]}")  # Trim to avoid token overload
+    return selected
+
+def give_answer(question, documents):
+    selected_chunks = retrieve_relevant_chunks(question, documents, top_k=100)
+    document_context = "\n".join(selected_chunks)
+
     prompt = f"""
 You are a helpful assistant. Use the following document context to answer the question.
 Mention which document was used when possible.
@@ -48,7 +60,7 @@ def main():
         if not question or not documents:
             raise ValueError("Missing question or documents.")
 
-        answer = answer_with_context(question, documents)
+        answer = give_answer(question, documents)
         print(json.dumps({"answer": answer}))
 
     except Exception as e:

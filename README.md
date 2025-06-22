@@ -136,7 +136,7 @@ Other Tools: Pinecone / ChromaDB (for similarity search), Redis (for session man
 
 3. Install NPM packages
 
-4. Enter your API in `query.py` and `summersizer.py`
+4. Enter your API in `query.py` and `summarizer.py`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
