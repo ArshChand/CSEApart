@@ -8,7 +8,7 @@ Kavya Kumar Agrawal : [Github](https://github.com/Kavya-Agrawal), [LinkedIn](htt
 
 Pratyush Kumar Swain : [Github](https://github.com/Pratyush439), [LinkedIn](https://www.linkedin.com/in/pratyush-kumar-swain-2313482a5/)
 
-Parv Goyal : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+Parv Goyal : [Github](https://github.com/goyalparv), [LinkedIn](https://www.linkedin.com/in/parv-goyal-9448b3296/)
 
 ## Overview
 
