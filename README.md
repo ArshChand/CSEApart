@@ -2,7 +2,7 @@
 
 ## Developer 
 
-Arsh Chand : [Github](https://github.com/ArshChand), [LinkedIn](www.linkedin.com/in/arsh-chand)
+Arsh Chand : [Github](https://github.com/ArshChand), [LinkedIn](https://www.linkedin.com/in/arsh-chand)
 
 Kavya Kumar Agrawal : [Github](https://github.com/Kavya-Agrawal), [LinkedIn](https://www.linkedin.com/in/kavya-kumar-agrawal/)
 
