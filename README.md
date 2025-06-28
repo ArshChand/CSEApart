@@ -64,7 +64,7 @@ The platform combines document analysis, quality assessment, automated summariza
 
 Ensure you have the following installed:
 - Node.js (v14 or higher)
-- Python (v3.8 or higher)
+- Python (v3.10 or higher)
 - MongoDB (v4.4 or higher)
 - npm or yarn package manager
 
