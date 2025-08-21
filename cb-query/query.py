@@ -5,7 +5,7 @@ from collections import defaultdict
 import os
 
 # Configure your Gemini API key
-genai.configure(api_key="AIzaSyClpvR6vhgU7aUFQCSMAjXxEBpPN98cXfo")  # Replace if needed
+genai.configure(api_key="")  # Replace if needed
 model = genai.GenerativeModel("gemini-2.0-flash")
 
 def answer_with_context(question, documents):
