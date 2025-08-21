@@ -41,7 +41,7 @@
 
 # # ##PDF_PATH = "/kaggle/input/inkulurer/banerjee-inkulu-2022-vertex-guarding-for-dynamic-orthogonal-art-galleries.pdf"  # Hardcoded path to your PDF
 
-# # genai.configure(api_key="AIzaSyClpvR6vhgU7aUFQCSMAjXxEBpPN98cXfo")
+# # genai.configure(api_key="")
 
 # # model = genai.GenerativeModel("gemini-2.0-flash")
  
@@ -128,7 +128,7 @@
 # # CONFIGURATION
 # # ----------------------
 
-# genai.configure(api_key="AIzaSyClpvR6vhgU7aUFQCSMAjXxEBpPN98cXfo")
+# genai.configure(api_key="")
 
 # model = genai.GenerativeModel("gemini-2.0-flash")
 
@@ -223,7 +223,7 @@ import google.generativeai as genai
 # CONFIGURATION
 # ----------------------
 
-genai.configure(api_key="AIzaSyClpvR6vhgU7aUFQCSMAjXxEBpPN98cXfo")
+genai.configure(api_key="")
 model = genai.GenerativeModel("gemini-2.0-flash")
  
 # ----------------------
